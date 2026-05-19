@@ -9,7 +9,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Keep Streamlit invisible so the HTML dashboard keeps its original design.
 st.markdown(
     """
     <style>
@@ -24,6 +23,7 @@ st.markdown(
     }
     [data-testid="stAppViewContainer"] {
         padding: 0 !important;
+        margin: 0 !important;
     }
     iframe {
         display: block;
@@ -38,8 +38,12 @@ st.markdown(
 html_path = Path(__file__).parent / "index.html"
 html_code = html_path.read_text(encoding="utf-8")
 
+# IMPORTANT:
+# Keep the iframe close to the browser viewport height.
+# If the iframe is huge, CSS fixed elements such as modals and notifications
+# are positioned relative to the full iframe height and may appear invisible.
 components.html(
     html_code,
-    height=7000,
+    height=930,
     scrolling=True
 )

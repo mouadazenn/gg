@@ -1,27 +1,26 @@
-# Ventec KPI Dashboard – Streamlit HTML Wrapper
+# Ventec KPI Dashboard – Streamlit fixed wrapper
 
-This project deploys a full HTML/CSS/JavaScript dashboard through Streamlit.
+This version fixes the issue where some functions such as "Gérer mes KPIs" seem broken after Streamlit deployment.
+
+The problem was not the HTML dashboard itself. It was the Streamlit iframe height.
+A very large iframe height makes CSS `position: fixed` elements such as modals appear far away inside the iframe.
 
 ## Files
 
-- `app.py`: Streamlit wrapper
-- `index.html`: your original HTML dashboard
-- `requirements.txt`: Streamlit dependency
+- `app.py`
+- `index.html`
+- `requirements.txt`
 
-## Run locally
+## Deploy
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+On Streamlit Cloud, use:
+
+```text
+Main file path: app.py
 ```
 
-## Deploy on Streamlit Cloud
+## Login code
 
-1. Push these files to GitHub.
-2. Go to Streamlit Cloud.
-3. Create a new app.
-4. Select your repository.
-5. Main file path: `app.py`
-6. Deploy.
-
-Note: the dashboard uses external CDN scripts for Chart.js and xlsx-js-style, so the deployed app needs internet access.
+```text
+ventec2026
+```
